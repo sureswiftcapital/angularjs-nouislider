@@ -98,9 +98,7 @@ module.directive('noUiSlider', ($timeout, $q, $log) => ({
      * using $timeout.
      *
      * @return {Promise} Returns a promise that resolves with `null` when ngModel is null and thus
-     * not in use. If the value entered for ngModel is not an array or number, an error is thrown
-     * and thus the promise rejects. If the value entered for ngModel is correct, the promise
-     * resolves with this value.
+     * not in use.
      */
     function initializeNgModel() {
       if (ngModel === null) {
@@ -109,10 +107,6 @@ module.directive('noUiSlider', ($timeout, $q, $log) => ({
 
       return $q((resolve) => {
         $timeout(() => {
-          if (!(angular.isArray(ngModel.$modelValue) || angular.isNumber(ngModel.$modelValue))) {
-            throw new Error(`Value provided in ngModel is not a valid noUislider start position. Expected a Number or an Array of Numbers, found: ${ ngModel.$modelValue }`);
-          }
-
           resolve(ngModel.$modelValue);
         });
       });
