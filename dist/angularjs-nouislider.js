@@ -212,9 +212,7 @@ _module__WEBPACK_IMPORTED_MODULE_2__["module"].directive('noUiSlider', ["$timeou
        * using $timeout.
        *
        * @return {Promise} Returns a promise that resolves with `null` when ngModel is null and thus
-       * not in use. If the value entered for ngModel is not an array or number, an error is thrown
-       * and thus the promise rejects. If the value entered for ngModel is correct, the promise
-       * resolves with this value.
+       * not in use.
        */
 
 
@@ -225,10 +223,6 @@ _module__WEBPACK_IMPORTED_MODULE_2__["module"].directive('noUiSlider', ["$timeou
 
         return $q(function (resolve) {
           $timeout(function () {
-            if (!(angular__WEBPACK_IMPORTED_MODULE_0___default.a.isArray(ngModel.$modelValue) || angular__WEBPACK_IMPORTED_MODULE_0___default.a.isNumber(ngModel.$modelValue))) {
-              throw new Error("Value provided in ngModel is not a valid noUislider start position. Expected a Number or an Array of Numbers, found: ".concat(ngModel.$modelValue));
-            }
-
             resolve(ngModel.$modelValue);
           });
         });
